@@ -1,13 +1,24 @@
 package rnd.saida.twojugs;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 public class SolutionTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	@Before
+	public void setUp() {
 
+	}
+	
+	@After
+	public void tearDown(){
+		
+	}
+	
+	@Test
+	public void happyTest(){
+		
 	}
 
 }
