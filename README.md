@@ -45,7 +45,33 @@ solvability of the problem first before proceeding with the search algorithm, an
 linear Diophantine equation mx+ny=c, where m, n are sizes of water jugs and c is solution size. 
 The equation mx+ny=d is only solvable if and only if GCD(m,n) is divides d, Otherwise no solution for the given input.
 
+Technical/Development Environment:
+
+Java 7, Junit 4, SLF4J for logging, Eclipse IDE.
+
 How To Run:
+
+Pre-requisites to run the program
+- Make sure that you have Java 7+ on your machine
+how to check for java
+go to command console and t
+		C:/java -version
+If you do not have Java, no problem it is very simple just go here
+	http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html 
+Step 1:
+Download twojug.zip and extract at any folder you wish
+
+Step 2: Go to the directory where you have extracted the zip in a command prompt console
+
+Step 3: Execute the java command
+       for example if you have extracted your zip file at C:\
+       
+       Go to C:\twojug\java -jer twojug.jar
+       
+       that's it.
+       
+       
+ 
 
 
 

@@ -8,14 +8,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import code.exercise.twojugs.exception.TwoJugException;
+import code.exercise.twojugs.exception.TwoJugTechnicalException;
+
 /**
- * Generic Graph solver with implementation for blind BFS
+ * Generic BFS search graph solver with implementation for blind BFS
  * 
  * @author Saida Dhanavath
  * 
  * @param <T>
  */
 public class BFSGraphSolver<T> {
+
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(BFSTwoJugProblem.class);
+
 	// this field is used to save/container of the Graph.
 	private Map<String, String> exists;
 	// this field is used to backtrack from target to root while generating the
@@ -33,15 +43,16 @@ public class BFSGraphSolver<T> {
 	 * @param goal
 	 *            - Goal state, size to be measured in this case.
 	 * @param transition
-	 *            - Initial transition container, JUN(M,N) in this case
+	 *            - Initial transition container, JUG(M,N) in this case
 	 * @return Returns the pouring sequence path
 	 */
-	protected List<T> bfs(T root, Goal<T> goal, Transition<T> transition) {
-		// The fields initialized below should be scoped to the bfs() method to
-		// keep
-		// it stateless; however, for readability of the bfs algorithm they are
-		// defined as fields and initialized here to support saving internal
-		// state and output generation.
+	public List<T> searchForSolution(T root, Goal<T> goal,
+			Transition<T> transition)throws TwoJugException {
+		LOGGER.info("Searching for solution");
+		
+		if(null==root || null==goal || null == goal){
+			throw new TwoJugTechnicalException("Input object is null");
+		}
 		exists = new HashMap<String, String>();
 		path = new HashMap<GraphNode<T>, GraphNode<T>>();
 		// queue to hold successor nodes
@@ -54,20 +65,21 @@ public class BFSGraphSolver<T> {
 
 		// continue until queue empty
 		while (queue.size() > 0) {
-			GraphNode<T> f = queue.remove();
+			GraphNode<T> targetNode = queue.remove();
 			// Check is this the goal
-			if (goal.isGoal(f.data)) {
-				return buildSolution(f);
+			if (goal.isGoal(targetNode.data)) {
+				return buildSolution(targetNode);
 			}
-			// blind BFS uses transition object to generate edges to this node
+			// blind search uses transition object to generate edges to this
+			// node
 			// on the fly
-			populateEdges(f, transition);
+			populateEdges(targetNode, transition);
 
 			// traverse these generated edges
-			for (GraphNode<T> edge : f.edges) {
+			for (GraphNode<T> edge : targetNode.edges) {
 				// if not visited, visit and queue
 				if (!edge.visited) {
-					visit(edge, f);
+					visit(edge, targetNode);
 					queue.offer(edge);
 					// check for goal
 					if (goal.isGoal(edge.data)) {
@@ -109,6 +121,7 @@ public class BFSGraphSolver<T> {
 	 * @return - pouring sequence path.
 	 */
 	private List<T> buildSolution(GraphNode<T> target) {
+		LOGGER.info("Building the solution path");
 		List<T> solution = new ArrayList<T>();
 		while (null != target) {
 			solution.add((T) target.data);
@@ -129,51 +142,4 @@ public class BFSGraphSolver<T> {
 		path.put(node, parent);
 	}
 
-	/**
-	 * This class represents a node of a graph. The node contains a collection of
-	 * connected nodes representing the nodes directly connected to this node
-	 * via an edge. The node also contains a generic data type and a flag to
-	 * mark if it was visited by a search algorithm.
-	 * 
-	 * @author Saida Dhanavath
-	 * 
-	 * @param <T>
-	 */
-	@SuppressWarnings("hiding")
-	class GraphNode<T> {
-		List<GraphNode<T>> edges = new ArrayList<GraphNode<T>>();
-		T data;
-		boolean visited;
-
-		public GraphNode(T data) {
-			this.data = data;
-			this.visited = false;
-		}
-
-		public void addEdge(GraphNode<T> node) {
-			this.edges.add(node);
-		}
-	}
-
-	/**
-	 * Interface for identifying transitions from a given node
-	 * 
-	 * @author Saida Dhanavath
-	 * 
-	 * @param <T>
-	 */
-	public interface Transition<T> {
-		List<T> transitions(T root);
-	}
-
-	/**
-	 * Interface for identifying if given candidate node satisfied goal state
-	 * 
-	 * @author Saida Dhanavath
-	 * 
-	 * @param <T>
-	 */
-	public interface Goal<T> {
-		boolean isGoal(T candidate);
-	}
 }

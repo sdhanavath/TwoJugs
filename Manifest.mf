@@ -1,0 +1,1 @@
+Main-Class: code.exercise.twojugs.client.TwoJugProblemClient

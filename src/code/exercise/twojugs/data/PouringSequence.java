@@ -47,7 +47,7 @@ public class PouringSequence implements Serializable {
 	}
 
 	public String toVerboseString() {
-		return transition + " leaving " + toString();
+		return transition +"\t" + toString();
 	}
 
 	public String toString() {

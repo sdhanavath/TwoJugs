@@ -18,34 +18,35 @@ public class TwoJugResult implements java.io.Serializable {
 	}
 
 	public int getPouringSequenceSize() {
-		return pouringSequence.size()-1;
+		return pouringSequence.size() - 1;
 	}
 
 	public String conciseInstructions() {
-		StringBuilder builder = new StringBuilder();
+		StringBuilder step = new StringBuilder();
 		for (PouringSequence sequence : pouringSequence) {
-			builder.append(sequence.toString());
-			builder.append("\n");
+			step.append(sequence.toString());
+			step.append("\n");
 		}
-		return builder.toString();
-	}
-	
-	public String prettyInstructions() {
-		StringBuilder builder = new StringBuilder();
-		for (PouringSequence sequence : pouringSequence) {
-			builder.append(sequence.toString());
-			builder.append("-->");
-		}
-		return builder.toString();
+		return step.toString();
 	}
 
-	public String verboseInstructions() {
-		StringBuilder builder = new StringBuilder();
-		for (PouringSequence sequence : pouringSequence) {
-			builder.append(sequence.toVerboseString());
-			builder.append("\n");
+	public String prettyInstructions() {
+		StringBuilder step = new StringBuilder();
+		for (int i = 0; i < pouringSequence.size(); i++) {
+			step.append(pouringSequence.get(i).toString());
+			if (i < pouringSequence.size() - 1)
+				step.append("-->");
 		}
-		return builder.toString();
+		return step.toString();
+	}
+	
+	public String verboseInstructions() {
+		StringBuilder step = new StringBuilder();
+		for (PouringSequence sequence : pouringSequence) {
+			step.append(sequence.toVerboseString());
+			step.append("\n");
+		}
+		return step.toString();
 	}
 
 	public int numberOfPouringSteps() {

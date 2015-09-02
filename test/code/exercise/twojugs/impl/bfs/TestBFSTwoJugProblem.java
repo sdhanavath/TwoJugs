@@ -1,4 +1,4 @@
-package code.exercise.twojugs;
+package code.exercise.twojugs.impl.bfs;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -12,16 +12,15 @@ import code.exercise.twojugs.data.TwoJugResult;
 import code.exercise.twojugs.exception.TwoJugBadArgException;
 import code.exercise.twojugs.exception.TwoJugException;
 import code.exercise.twojugs.exception.TwoJugProblemNotSolvableException;
-import code.exercise.twojugs.impl.bfs.BFSTwoJugProblem;
 
 /**
  * 
  * @author Saida Dhanavath
  * 
  */
-public class TwoJugProblemTest {
+public class TestBFSTwoJugProblem {
 
-	private TwoJugProblem twoJugProblem;
+	private BFSTwoJugProblem twoJugProblem;
 
 	@Before
 	public void setUp() {
@@ -42,8 +41,8 @@ public class TwoJugProblemTest {
 		assertTrue("should be true", twoJugProblem.isSolvable(4, 5, 0));
 	}
 
-	@Test(expected=TwoJugException.class)
-	public void isSolvableInvalidJugs()throws Exception {
+	@Test(expected = TwoJugException.class)
+	public void isSolvableInvalidJugs() throws Exception {
 		// invalid case even jug odd solution
 		assertFalse("should be false", twoJugProblem.isSolvable(4, 6, 3));
 
@@ -51,8 +50,8 @@ public class TwoJugProblemTest {
 		assertFalse("should be false", twoJugProblem.isSolvable(0, 0, 1));
 	}
 
-	@Test(expected=TwoJugException.class)
-	public void isSolvableInvalidDivisor()throws Exception {
+	@Test(expected = TwoJugException.class)
+	public void isSolvableInvalidDivisor() throws Exception {
 		// invalid GCD not divisor to solution size
 		assertFalse("should be false", twoJugProblem.isSolvable(3, 9, 2));
 
@@ -87,4 +86,5 @@ public class TwoJugProblemTest {
 		TwoJugResult result = twoJugProblem.getSolution(5, 3, 0);
 		assertEquals("path size should equal", result.numberOfPouringSteps(), 0);
 	}
+
 }
