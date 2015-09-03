@@ -17,12 +17,14 @@ import code.exercise.twojugs.util.TwoJugUtil;
  */
 public abstract class AbstractTwoJugProblem implements TwoJugProblem {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractTwoJugProblem.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(AbstractTwoJugProblem.class);
 
 	@Override
 	public boolean isSolvable(int sizeOfJugM, int sizeOfJugN, int sizeOfSolution)
 			throws TwoJugException {
-		LOGGER.debug("Checking if("+sizeOfJugM+","+sizeOfJugN+","+sizeOfSolution+") has a solution or not");
+		LOGGER.debug("Checking if(" + sizeOfJugM + "," + sizeOfJugN + ","
+				+ sizeOfSolution + ") has a solution or not");
 
 		// Make sure that the jugs can hold solution size
 		if (sizeOfSolution > sizeOfJugM && sizeOfSolution > sizeOfJugN) {
@@ -61,7 +63,8 @@ public abstract class AbstractTwoJugProblem implements TwoJugProblem {
 			throw new TwoJugProblemNotSolvableException(
 					"This problem is not solvable");
 		}
-		LOGGER.debug("Found that ("+sizeOfJugM+","+sizeOfJugN+","+sizeOfSolution+") has a solution");
+		LOGGER.debug("Found that (" + sizeOfJugM + "," + sizeOfJugN + ","
+				+ sizeOfSolution + ") has a solution");
 		return true;
 	}
 

@@ -39,7 +39,7 @@ public class TwoJugResult implements java.io.Serializable {
 		}
 		return step.toString();
 	}
-	
+
 	public String verboseInstructions() {
 		StringBuilder step = new StringBuilder();
 		for (PouringSequence sequence : pouringSequence) {

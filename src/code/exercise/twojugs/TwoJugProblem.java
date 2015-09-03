@@ -34,7 +34,8 @@ public interface TwoJugProblem {
 	 *            - size to be measured.
 	 * @return true if solution exists; otherwise, false,
 	 */
-	boolean isSolvable(int sizeOfJugM, int sizeOfJugN, int sizeOfSolution)throws TwoJugException;
+	boolean isSolvable(int sizeOfJugM, int sizeOfJugN, int sizeOfSolution)
+			throws TwoJugException;
 
 	/**
 	 * The purpose of this method is compute the solution for two jug problem.

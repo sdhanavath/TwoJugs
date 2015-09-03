@@ -47,10 +47,10 @@ public class BFSGraphSolver<T> {
 	 * @return Returns the pouring sequence path
 	 */
 	public List<T> searchForSolution(T root, Goal<T> goal,
-			Transition<T> transition)throws TwoJugException {
+			Transition<T> transition) throws TwoJugException {
 		LOGGER.info("Searching for solution");
-		
-		if(null==root || null==goal || null == goal){
+
+		if (null == root || null == goal || null == transition) {
 			throw new TwoJugTechnicalException("Input object is null");
 		}
 		exists = new HashMap<String, String>();
@@ -64,7 +64,7 @@ public class BFSGraphSolver<T> {
 		queue.offer(start);
 
 		// continue until queue empty
-		while (queue.size() > 0) {
+		while (!queue.isEmpty()) {
 			GraphNode<T> targetNode = queue.remove();
 			// Check is this the goal
 			if (goal.isGoal(targetNode.data)) {

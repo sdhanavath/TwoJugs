@@ -47,9 +47,10 @@ public class PouringSequence implements Serializable {
 	}
 
 	public String toVerboseString() {
-		return transition +"\t" + toString();
+		return transition + "\t" + toString();
 	}
 
+	@Override
 	public String toString() {
 		return "(" + sizeOfJugM + "," + sizeOfJugN + ")";
 	}

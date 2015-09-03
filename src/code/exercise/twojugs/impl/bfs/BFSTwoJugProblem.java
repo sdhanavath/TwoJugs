@@ -26,14 +26,14 @@ public class BFSTwoJugProblem extends AbstractTwoJugProblem {
 	@Override
 	public TwoJugResult getSolution(int sizeOfJugM, int sizeOfJugN,
 			int sizeOfSolution) throws TwoJugException {
-		LOGGER.info("Checking whether it has solution.... for (" + sizeOfJugM + ","
-				+ sizeOfJugN + "," + sizeOfSolution + ")");
+		LOGGER.info("Checking whether it has solution.... for (" + sizeOfJugM
+				+ "," + sizeOfJugN + "," + sizeOfSolution + ")");
 		if (!isSolvable(sizeOfJugM, sizeOfJugN, sizeOfSolution)) {
 			throw new TwoJugProblemNotSolvableException(
 					"Problem is not solvable");
 		}
 		LOGGER.info("Yes, It has a soltion, Starting to compute the solution");
-		
+
 		BFSGraphSolver<PouringSequence> solver = new BFSGraphSolver<PouringSequence>();
 
 		List<PouringSequence> solution = solver.searchForSolution(

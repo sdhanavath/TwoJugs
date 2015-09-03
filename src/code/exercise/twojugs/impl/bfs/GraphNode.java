@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents a node of a graph. The node contains a collection
- * of connected nodes representing the nodes directly connected to this node
- * via an edge. The node also contains a generic data type and a flag to
- * mark if it was visited by the search algorithm.
+ * This class represents a node of a graph. The node contains a collection of
+ * connected nodes representing the nodes directly connected to this node via an
+ * edge. The node also contains a generic data type and a flag to mark if it was
+ * visited by the search algorithm.
  * 
  * @author Saida Dhanavath
  * 

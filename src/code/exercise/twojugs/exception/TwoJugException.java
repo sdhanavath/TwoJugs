@@ -1,8 +1,10 @@
 package code.exercise.twojugs.exception;
+
 /**
  * Specifies TwoJugException
+ * 
  * @author Saida Dhanavath
- *
+ * 
  */
 public class TwoJugException extends Exception {
 	/** Serializable version Id. */

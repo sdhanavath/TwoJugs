@@ -1,11 +1,12 @@
 package code.exercise.twojugs.exception;
+
 /**
  * Signals that the input parameters supplied are bad.
  * 
  * @author Saida Dhanavath
- *
+ * 
  */
-public class TwoJugBadArgException extends TwoJugException{
+public class TwoJugBadArgException extends TwoJugException {
 	/**
 	 * serial version id
 	 */

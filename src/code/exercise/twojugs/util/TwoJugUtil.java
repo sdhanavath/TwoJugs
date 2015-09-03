@@ -1,12 +1,19 @@
 package code.exercise.twojugs.util;
 
 import java.math.BigInteger;
+
 /**
  * Utilities help to solve two jug problem
+ * 
  * @author Saida Dhanavath
- *
+ * 
  */
 public class TwoJugUtil {
+
+	private TwoJugUtil() {
+
+	}
+
 	/**
 	 * Returns a BigInteger whose value is the greatest common divisor of two
 	 * input parameters.
@@ -25,8 +32,10 @@ public class TwoJugUtil {
 	 * Returns a number GCD(Greatest Common Divisor) between two positive
 	 * integers using simple recursion.
 	 * 
-	 * @param a - positive integer 1
-	 * @param b - positive integer 2
+	 * @param a
+	 *            - positive integer 1
+	 * @param b
+	 *            - positive integer 2
 	 * @return
 	 */
 	public static int gcd(int a, int b) {
