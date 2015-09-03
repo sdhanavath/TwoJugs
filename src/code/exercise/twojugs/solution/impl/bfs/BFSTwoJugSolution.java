@@ -45,12 +45,12 @@ public class BFSTwoJugSolution extends AbstractTwoJugSolution {
         List<PouringSequence> solution = solver.searchForSolution(root, goal,
                 jugStates);
 
-        LOGGER.debug(TwoJugConstant.TheComputedSolutionIs.getMessage()
+        LOGGER.debug(TwoJugConstant.THECOMPUTEDSOLUTIONIS.getMessage()
                 + solution);
 
         if (null == solution || solution.isEmpty()) {
             throw new TwoJugTechnicalException(
-                    TwoJugConstant.TechnicalExceptionOccured.getMessage());
+                    TwoJugConstant.TECHNICALEXCEPTION.getMessage());
         }
         return new TwoJugResult(solution);
     }

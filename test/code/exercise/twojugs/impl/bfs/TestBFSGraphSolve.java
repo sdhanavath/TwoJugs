@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import code.exercise.twojugs.solution.data.PouringSequence;
-import code.exercise.twojugs.solution.exception.TwoJugTechnicalException;
 import code.exercise.twojugs.solution.impl.bfs.BFSGraphSolver;
 import code.exercise.twojugs.solution.impl.bfs.DiscoverTwoJugStates;
 import code.exercise.twojugs.solution.impl.bfs.TwoJugGoal;
@@ -59,14 +58,5 @@ public class TestBFSGraphSolve {
 
         assertNotNull("should not be null", result);
         assertEquals("should be 0", 0, result.size());
-    }
-
-    @Test(expected = TwoJugTechnicalException.class)
-    public void nilInput() throws Exception {
-
-        initialState = new PouringSequence(0, 0, "Initial state");
-        goal = new TwoJugGoal(3);
-        transition = new DiscoverTwoJugStates(4, 6);
-        solver.searchForSolution(null, null, null);
     }
 }

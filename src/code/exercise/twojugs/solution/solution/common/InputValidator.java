@@ -13,7 +13,7 @@ public class InputValidator {
                 && sizeToBeMeasured > sizeOfSecondJug)
             return false;
 
-        if (sizeOfFirstJug <= 0 || sizeOfSecondJug <= 0 || sizeToBeMeasured < 0)
+        if (sizeOfFirstJug < 0 || sizeOfSecondJug < 0 || sizeToBeMeasured < 0)
             return false;
 
         return true;

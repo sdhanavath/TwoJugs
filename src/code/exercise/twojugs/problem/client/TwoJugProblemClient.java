@@ -11,6 +11,7 @@ import code.exercise.twojugs.solution.data.TwoJugResult;
 import code.exercise.twojugs.solution.exception.TwoJugException;
 import code.exercise.twojugs.solution.impl.bfs.BFSTwoJugSolution;
 import code.exercise.twojugs.solution.solution.common.InputValidator;
+import code.exercise.twojugs.solution.solution.common.TwoJugConstant;
 
 public class TwoJugProblemClient {
 
@@ -43,11 +44,13 @@ public class TwoJugProblemClient {
                     LOGGER.info("Invalid Inputs!!!");
                 }
             } catch (InputMismatchException e) {
-                LOGGER.info("Input Mismatch Exception Occured: Enter only numbers");
+                LOGGER.info("Input Mismatch Exception Occured: Enter only numbers  "
+                        + e);
             } catch (TwoJugException e) {
-                LOGGER.info("TwoJugException occured:" + e.getMessage());
+                LOGGER.info("TwoJugException occured:  " + e);
             }
-        } while (doYouWantToContinue().equalsIgnoreCase("Y"));
+        } while (doYouWantToContinue().equalsIgnoreCase(
+                TwoJugConstant.YES.getMessage()));
     }
 
     static boolean validateInput() {

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import code.exercise.twojugs.solution.exception.TwoJugException;
 import code.exercise.twojugs.solution.exception.TwoJugProblemNotSolvableException;
+import code.exercise.twojugs.solution.solution.common.InputValidator;
 
 public abstract class AbstractTwoJugSolution implements TwoJugSolution {
 
@@ -18,7 +19,8 @@ public abstract class AbstractTwoJugSolution implements TwoJugSolution {
             int sizeToBeMeasured) throws TwoJugException {
         LOGGER.debug("Checking if(" + sizeOfFirstJug + "," + sizeOfSecondJug
                 + "," + sizeToBeMeasured + ") has a solution or not");
-
+        if(!InputValidator.validate(sizeOfFirstJug, sizeOfSecondJug, sizeToBeMeasured))
+            throw new TwoJugException("Invalid inputs");
         int gcd = BigInteger.valueOf(sizeOfFirstJug)
                 .gcd(BigInteger.valueOf(sizeOfSecondJug)).intValue();
 

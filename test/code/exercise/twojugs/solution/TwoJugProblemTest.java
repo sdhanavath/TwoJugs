@@ -35,9 +35,9 @@ public class TwoJugProblemTest {
         assertTrue("should be true", twoJugProblem.isSolvable(4, 5, 0));
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void inValidSizes() throws Exception {
-        twoJugProblem.isSolvable(1, 0, 0);
+        assertTrue(twoJugProblem.isSolvable(1, 0, 0));
     }
 
     @Test(expected = TwoJugException.class)

@@ -2,13 +2,15 @@ package code.exercise.twojugs.solution.solution.common;
 
 public enum TwoJugConstant {
 
-    sizeToBeMeasuredMustBeLess(
-            "sizeToBeMeasured must be lesser or equal to the sizes of jugs"),
-            TheComputedSolutionIs("The Computed solution is"),
-            
-           TechnicalExceptionOccured ("echnical Exception occured while computing the solution."),
-           
-              SearchingForSolution("Searching for solution");
+    TOBEMEASUREDMUSTBELESS(
+            "sizeToBeMeasured must be lesser or equal to the sizes of jugs"), THECOMPUTEDSOLUTIONIS(
+            "The Computed solution is"),
+
+    TECHNICALEXCEPTION(
+            "echnical Exception occured while computing the solution."),
+
+    SEARCHINGFORSOLUTION("Searching for solution"),
+    YES("Y");
 
     private String message;
 

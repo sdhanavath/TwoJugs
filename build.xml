@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project TwoJugs with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/A-SAIDA/rnd-workspace/TwoJugs/build/run-twojug.jar">
+            <manifest>
+                <attribute name="Main-Class" value="code.exercise.twojugs.problem.client.TwoJugProblemClient"/>
+                <attribute name="Rsrc-Main-Class" value="code.exercise.twojugs.client.TwoJugProblemClient"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ junit.jar org.hamcrest.core_1.1.0.v20090501071000.jar slf4j-api-1.7.12.jar slf4j-jdk14-1.7.12.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="C:/A-SAIDA/rnd-workspace/TwoJugs/bin"/>
+            <zipfileset dir="C:\A-SAIDA\softwares\tools\eclipse-jee-juno-SR2-win32-x86_64\eclipse\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900" includes="junit.jar"/>
+            <zipfileset dir="C:\A-SAIDA\softwares\tools\eclipse-jee-juno-SR2-win32-x86_64\eclipse\plugins" includes="org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+            <zipfileset dir="C:\A-SAIDA\rnd-workspace\TwoJugs\external-lib" includes="slf4j-api-1.7.12.jar"/>
+            <zipfileset dir="C:\A-SAIDA\rnd-workspace\TwoJugs\external-lib" includes="slf4j-jdk14-1.7.12.jar"/>
+        </jar>
+    </target>
+</project>

@@ -6,8 +6,8 @@ import java.util.List;
 import code.exercise.twojugs.solution.data.PouringSequence;
 
 public class DiscoverTwoJugStates implements Transition<PouringSequence> {
-    private int sizeOfJugM;
-    private int sizeOfJugN;
+    private int sizeOfFirstJug;
+    private int sizeOfSecondJug;
     private static final String FILL = "Fill ";
     private static final String POUR = "Pour ";
     private static final String EMPTY = "Empty ";
@@ -15,9 +15,9 @@ public class DiscoverTwoJugStates implements Transition<PouringSequence> {
     private static final String LITER = "L ";
     private static final String INTO = "into ";
 
-    public DiscoverTwoJugStates(int sizeOfJugM, int sizeOfJugN) {
-        this.sizeOfJugM = sizeOfJugM;
-        this.sizeOfJugN = sizeOfJugN;
+    public DiscoverTwoJugStates(int sizeOfFirstJug, int sizeOfSecondJug) {
+        this.sizeOfFirstJug = sizeOfFirstJug;
+        this.sizeOfSecondJug = sizeOfSecondJug;
     }
 
     @Override
@@ -25,8 +25,8 @@ public class DiscoverTwoJugStates implements Transition<PouringSequence> {
         List<PouringSequence> list = new ArrayList<PouringSequence>();
         int x = currentSequence.getSizeOfFirstJug();
         int y = currentSequence.getSizeOfSecondJug();
-        int b1 = sizeOfJugM;
-        int b2 = sizeOfJugN;
+        int b1 = sizeOfFirstJug;
+        int b2 = sizeOfSecondJug;
         if (x < b1 && y > 0) {
             // move partial from y to x
             int partial = Math.min(y, b1 - x);
@@ -63,5 +63,5 @@ public class DiscoverTwoJugStates implements Transition<PouringSequence> {
         }
         return list;
     }
-
+    
 }

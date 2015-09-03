@@ -26,7 +26,7 @@ public class BFSGraphSolver<T> {
 
     public List<T> searchForSolution(T root, Goal<T> goal,
             Transition<T> transition) throws TwoJugException {
-        LOGGER.info(TwoJugConstant.SearchingForSolution.getMessage());
+        LOGGER.info(TwoJugConstant.SEARCHINGFORSOLUTION.getMessage());
 
         graphContainer = new HashMap<String, String>();
         path = new HashMap<GraphNode<T>, GraphNode<T>>();
