@@ -1,4 +1,4 @@
-package code.exercise.twojugs.impl.bfs;
+package code.exercise.twojugs.solution;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -10,12 +10,11 @@ import org.junit.Test;
 
 import code.exercise.twojugs.solution.data.TwoJugResult;
 import code.exercise.twojugs.solution.exception.TwoJugException;
-import code.exercise.twojugs.solution.exception.TwoJugProblemNotSolvableException;
 import code.exercise.twojugs.solution.impl.bfs.BFSTwoJugSolution;
 
-public class TestBFSTwoJugProblem {
+public class TwoJugProblemTest {
 
-    private BFSTwoJugSolution twoJugProblem;
+    private TwoJugSolution twoJugProblem;
 
     @Before
     public void setUp() {
@@ -36,6 +35,11 @@ public class TestBFSTwoJugProblem {
         assertTrue("should be true", twoJugProblem.isSolvable(4, 5, 0));
     }
 
+    @Test(expected = Exception.class)
+    public void inValidSizes() throws Exception {
+        twoJugProblem.isSolvable(1, 0, 0);
+    }
+
     @Test(expected = TwoJugException.class)
     public void isSolvableInvalidJugs() throws Exception {
         // invalid case even jug odd solution
@@ -52,7 +56,7 @@ public class TestBFSTwoJugProblem {
 
     }
 
-    @Test(expected = TwoJugProblemNotSolvableException.class)
+    @Test(expected = TwoJugException.class)
     public void isNotSolvable() throws TwoJugException {
         twoJugProblem.getSolution(4, 6, 3);
     }
@@ -81,5 +85,4 @@ public class TestBFSTwoJugProblem {
         TwoJugResult result = twoJugProblem.getSolution(5, 3, 0);
         assertEquals("path size should equal", result.numberOfPouringSteps(), 0);
     }
-
 }
