@@ -11,7 +11,7 @@ import java.util.List;
 public class TwoJugResult implements java.io.Serializable {
 
 	private static final long serialVersionUID = -8525014126279096535L;
-	final List<PouringSequence> pouringSequence;
+	private List<PouringSequence> pouringSequence;
 
 	public TwoJugResult(List<PouringSequence> pouringSequence) {
 		this.pouringSequence = pouringSequence;

@@ -123,9 +123,10 @@ public class BFSGraphSolver<T> {
 	private List<T> buildSolution(GraphNode<T> target) {
 		LOGGER.info("Building the solution path");
 		List<T> solution = new ArrayList<T>();
-		while (null != target) {
-			solution.add((T) target.data);
-			target = path.get(target);
+		GraphNode<T> tempTarget = target;
+		while (null != tempTarget) {
+			solution.add((T) tempTarget.data);
+			tempTarget = path.get(tempTarget);
 		}
 		Collections.reverse(solution);
 		return solution;
